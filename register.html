@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Register</title>
+</head>
+
+<body>
+
+    <main>
+        <section class="register d-center position-relative">
+            <div id="container" class="container">
+                <div class="row text-center g-0 justify-content-between rounded-2">
+                    <div class="col-md-5">
+                        <div class="inner">
+
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="inner py-3">
+                            <img src="images/logo-sm.png" alt="">
+                            <h2 class="display-4 fw-bold pb-3">Register to Game Over</h2>
+                            <form class="d-flex flex-wrap justify-content-between row-gap-3">
+                                <div class="fname">
+                                    <input id="fNameInput" class="form-control py-1" type="text"
+                                        placeholder="First Name">
+                                    <div id="fNameMsg" class="invalid-feedback mt-0 mt-0">
+
+                                    </div>
+                                </div>
+
+                                <div class="lname">
+                                    <input id="lNameInput" class="form-control py-1" type="text"
+                                        placeholder="Last Name">
+                                    <div id="lNameMsg" class="invalid-feedback mt-0">
+
+                                    </div>
+                                </div>
+
+                                <div class="email">
+                                    <input id="emailInput" class="form-control w-100 py-1" type="email"
+                                        placeholder="Email">
+                                    <div id="emailMsg" class="invalid-feedback mt-0">
+
+                                    </div>
+                                </div>
+                                <div class="password">
+                                    <input id="passwordInput" class="form-control w-100 py-1" type="password"
+                                        placeholder="password">
+                                    <div id="passwordMsg" class="invalid-feedback mt-0">
+
+                                    </div>
+                                </div>
+
+                                <div class="age">
+                                    <input id="ageInput" class="form-control w-100" type="number" placeholder="Age">
+                                    <div id="ageMsg" class="invalid-feedback mt-0">
+
+                                    </div>
+                                </div>
+
+                                <p class="w-100 fs-4" id="successMsg">
+
+                                </p>
+                                <button id="registerBtn" class="btn btn-primary w-50 my-4 mx-auto">Register</button>
+                            </form>
+
+                            <div class="d-flex justify-content-center gap-2 foo">
+                                <p>Already a member?</p><a id="loginLink" href="#" class="text-decoration-none">login <i
+                                        class="fa-solid fa-right-to-bracket"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="col-md-12 developed py-3 text-center">
+                        <p class="m-0">&copy; 2024 Designed and developed by <a
+                                href="https://www.linkedin.com/in/moamenmokhtar-co/" target="_blank">Moamen Mokhtar</a>
+                        </p>
+                    </div>
+                </footer>
+
+
+
+            </div>
+
+            <a href="#">
+                <i class="fa-solid fa-moon position-absolute"></i>
+
+            </a>
+        </section>
+    </main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>
