@@ -44,7 +44,8 @@ form.addEventListener('submit', function (e) {
         validMsg(inputs[1], lNameMsg)
         validMsg(inputs[2], emailMsg)
         validMsg(inputs[3], passwordMsg)
-        validMsg(inputs[4], ageMsg)
+        validMsg(inputs[4], rePasswordMsg)
+        validMsg(inputs[5], ageMsg)
     }
 
 
@@ -114,12 +115,15 @@ inputs[4].addEventListener('blur', function () {
 // ! =============> Functions ===============>
 function setForm() {
     let user = {
-        first_name: inputs[0].value,
-        last_name: inputs[1].value,
+        name: `${inputs[0].value} ${inputs[1].value}`,
         email: inputs[2].value,
         password: inputs[3].value,
-        age: inputs[4].value
+        rePassword: inputs[4].value,
+        age: inputs[5].value
     }
+
+    console.log(user);
+
 
     registerUser(user)
 
@@ -131,7 +135,7 @@ function setForm() {
 
 
 async function registerUser(user) {
-    const api = await fetch('https://movies-api.routemisr.com/signup', {
+    const api = await fetch('https://ecommerce.routemisr.com/api/v1/auth/signup', {
         method: 'POST', body: JSON.stringify(user), headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -140,8 +144,8 @@ async function registerUser(user) {
 
     const response = await api.json()
 
-    if(response.message == 'success'){
-        document.getElementById('successMsg').innerHTML = response.message;
+    if (response.message == 'success') {
+        document.getElementById('successMsg').innerHTML = 'Success , Please Login';
         clearForm(inputs)
     }
 
@@ -227,6 +231,22 @@ function validation(input) {
         passwordInput: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
         ageInput: /^[1-7][0-9]$/
     }
+
+    if (input.id === 'rePasswordInput') {
+        const password = document.getElementById('passwordInput').value;
+        if (input.value === password) {
+            input.classList.add('is-valid');
+            input.classList.remove('is-invalid');
+            return true;
+        } else {
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            return false;
+        }
+    }
+
+
+
     if (regex[input.id].test(input.value)) {
         input.classList.add('is-valid');
         input.classList.remove('is-invalid');
@@ -246,6 +266,7 @@ function validMsg(input, msgId) {
         lNameInput: 'Enter Valid Name : min 3 digit',
         emailInput: 'Enter Valid Email',
         passwordInput: 'Enter Valid Password : least 8 character , 1 upper , 1 lower character ',
+        rePasswordInput: 'Password does not match confirmation',
         ageInput: 'Enter Valid age : 10 - 79',
     }
     msgId.innerHTML = msgs[input.id];
@@ -256,8 +277,8 @@ function validMsg(input, msgId) {
 
 
 
-function clearForm(inputs){
-    for(let i = 0 ; i<inputs.length ; i++){
+function clearForm(inputs) {
+    for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
         inputs[i].classList.remove('is-valid')
     }

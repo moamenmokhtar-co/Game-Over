@@ -91,7 +91,7 @@ function setForm() {
 
 
 async function loginUser(user) {
-    const api = await fetch('https://movies-api.routemisr.com/signin', {
+    const api = await fetch('https://ecommerce.routemisr.com/api/v1/auth/signin', {
         method: 'POST', body: JSON.stringify(user), headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
